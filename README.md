@@ -51,3 +51,11 @@ request, GitHub Actions permissions and approvals, and the two-pull-request life
 qualifying project PR causes the workflow to open a separate draft PR containing the proposed
 narrative entry. Workflows on that automation-created follow-up PR enter an approval-required state
 and must be approved by someone with repository write access.
+
+## Test your completed Narrative end to end first
+
+Before adopting into a repository you care about, rehearse the whole lifecycle in a throwaway
+repository. [Test your freshly built MyNarrative](TEST-MYNARRATIVE.md) walks through creating a
+disposable `TestMyNarrative` repository, creating the `narrative-required` label, installing your
+processor, making a real decision-bearing change, opening the labelled project PR, and watching the
+maintenance workflow open the separate follow-up PR that carries the proposed narrative fragment.
