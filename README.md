@@ -59,3 +59,20 @@ repository. [Test your freshly built MyNarrative](TEST-MYNARRATIVE.md) walks thr
 disposable `TestMyNarrative` repository, creating the `narrative-required` label, installing your
 processor, making a real decision-bearing change, opening the labelled project PR, and watching the
 maintenance workflow open the separate follow-up PR that carries the proposed narrative fragment.
+
+## When a labelled pull request has no narrative
+
+A pull request that carries `narrative-required` has opted in to supplying Context, Decision, and
+Consequences. The maintenance workflow reads those three sections from the merged pull request's
+description; if they are missing, or written as ordinary prose instead of the exact `## Narrative
+Context`, `## Narrative Decision`, and `## Narrative Consequences` headings, the workflow has no
+explicit decision to interpret. Because that requirement is checked as the pull request merges, the
+omission surfaces as a failed maintenance run on a pull request that is already merged, and no
+narrative proposal is produced for the decision. A repository can additionally add a pre-merge gate
+that rejects the same omission earlier, but a contributor still needs a way to bring a labelled pull
+request's description back into shape when it does not yet carry the required sections.
+
+The [fix a narrative-required pull request](prompts/11-fix-narrative-required-pull-request.md)
+prompt is a coding-agent task for exactly that situation. Like the adoption prompt, it is an
+operational example rather than a build stage, and it names no specific processor because teams run
+their own customised clones.
