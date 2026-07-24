@@ -39,6 +39,20 @@ only stage that adds Project Narrative configuration, fragments, generated `Narr
 maintenance workflows, and Narrative-aware pull-request governance to the learner's repository.
 That ordering avoids assuming the tool exists before the learner has built and audited it.
 
+## Streamline consumer onboarding
+
+Once the processor is built and audited, the optional
+[one-command install and agent recipe](prompts/12-one-command-install-and-agent-recipe.md) prompt
+collapses consumer onboarding into a single non-destructive `narrative install` command and adds an
+`INSTALL.md` written for an installing coding agent. Apply it in a coding-agent task connected to the
+processor repository itself.
+
+This is a build enhancement rather than an operational example: it extends the CLI and the delivery
+documentation so a consumer no longer has to hand-author the workflows and pull-request template, and
+so agent-driven installs ("add this Narrative to my repository") produce the same result across
+tools. It stays local, model-free, and deterministic, and it reports — but never performs — the
+repository-settings and label steps that only a human with admin access can complete.
+
 ## Use your completed Narrative in another repository
 
 After the build and self-hosting sequence is complete, use the optional
