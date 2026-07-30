@@ -14,8 +14,8 @@ Read [README.md](README.md) and [START-HERE.md](START-HERE.md) before your first
 ## §1 — What this repository is
 
 A staged prompt sequence that teaches a learner to build **Project Narrative** — a deterministic,
-review-first processor for a repository's decision history — using a coding agent. This repo contains
-`prompts/`, not the processor. The processor itself lives in the `Narrative` repository.
+review-first processor for a repository's decision history — using a coding agent. This repo
+contains `prompts/`, not the processor. The processor itself lives in the `Narrative` repository.
 
 Consequences for how you work here:
 
@@ -56,10 +56,10 @@ wrong, and so is a prompt that leaves an agent able to satisfy it by accident:
 - `Narrative.md` is **generated**. It is never hand-edited, and neither is its index.
 - A fragment is front matter plus non-empty `## Context`, `## Decision`, `## Consequences` sections,
   in that exact order. The plural on the last one matters; the validator rejects `## Consequence`.
-- A decision-bearing pull request needs **two** things: the `narrative-required` label, and
-  `## Narrative Context`, `## Narrative Decision`, `## Narrative Consequences` headings in the
-  pull-request **body**. A missing label makes the maintenance action exit silently; missing sections
-  with the label present make it fail visibly.
+- A decision-bearing pull request needs **two** things: the `narrative-required` label, and the
+  headings `## Narrative Context`, `## Narrative Decision` and `## Narrative Consequences` in the
+  pull-request **body**. A missing label makes the maintenance action exit silently; missing
+  sections with the label present make it fail visibly.
 - The maintenance action fires on the **merge event only**. Neither omission can be repaired by
   labelling afterwards — a missed entry has to be written by hand as a fragment.
 - Supplying a pull-request body replaces the repository template wholesale. Doing that without
@@ -82,8 +82,8 @@ wrong, and so is a prompt that leaves an agent able to satisfy it by accident:
   stacked branch is orphaned: GitHub reports it merged while its commits never reach `main`.
 - After pushing follow-up commits to a branch with an open pull request, say so explicitly. A pull
   request merged before later commits arrive drops them silently, and the merge looks clean.
-- Verify what landed with `git log origin/main --oneline` after a merge rather than trusting the pull
-  request's state.
+- Verify what landed with `git log origin/main --oneline` after a merge rather than trusting the
+  pull request's state.
 - Commit or push only when asked. Never force-push a shared branch or delete a remote branch unless
   explicitly requested.
 
