@@ -70,7 +70,34 @@ Add `INSTALL.md` written **to the installing coding agent**, distinct from `AGEN
 - give the deterministic verification step (`narrative check`);
 - state the prohibitions: do not hand-edit the generated output, do not label the installation pull
   request itself, do not invent narrative content, do not change the heading names or label
-  spelling.
+  spelling;
+- require the installing agent to record the narrative contract in the consumer repository's own
+  **canonical agent instruction file** — `CLAUDE.md` or `AGENTS.md`, whichever that repository
+  already treats as authoritative — creating it if absent and appending a section if present, never
+  overwriting existing instructions. The same non-destructive rule the pull-request template already
+  follows applies here.
+
+That last step is the difference between an installation that holds and one that decays. Scaffolding
+the workflows and the template makes the mechanism *available*; nothing in it makes an agent working
+in that repository months later aware of it. The section must state at minimum:
+
+- `Narrative.md` is generated and is never hand-edited;
+- a decision-bearing pull request needs **both** the `narrative-required` label **and** the three
+  `## Narrative …` body headings, spelled exactly as the template spells them;
+- the maintenance workflow fires on the **merge event only**, so neither omission can be repaired
+  afterwards by labelling — a missed entry has to be written by hand as a fragment;
+- supplying a pull-request body replaces the repository template wholesale, which is the most common
+  way an entry is silently lost;
+- a narrative-only pull request carries no label;
+- an accepted entry is never rewritten; a reversal is a new entry of kind `correction` citing the
+  original by slug.
+
+Instruct the agent to add pointer files for the other tier-one tools if the consumer repository has
+none, on the same no-duplication rule as the processor's own: the canonical file holds the rules and
+the pointers hold only a reference to it.
+
+State plainly that this step is scaffolding, not a decision, and belongs in the same unlabelled
+installation pull request.
 
 ## Update documentation and contracts
 
@@ -87,6 +114,9 @@ Add `INSTALL.md` written **to the installing coding agent**, distinct from `AGEN
   action constant and the required label.
 - The scaffolded workflow and template contents match the README's documented versions exactly.
 - The command reports created paths, kept paths, and the three manual follow-ups.
+- `INSTALL.md` requires the narrative contract to be recorded in the consumer's canonical agent
+  instruction file, non-destructively, and names the label, the exact body headings, the
+  merge-event-only limitation, and the supplied-body caveat.
 - `install` adds no dependency and makes no network or model call.
 - Every documented command matches executable behavior.
 - `npm run check` succeeds and `git diff --check` succeeds.

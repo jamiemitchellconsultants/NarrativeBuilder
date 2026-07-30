@@ -42,8 +42,23 @@ Add canonical `AGENTS.md` repository instructions. Agent-specific instruction fi
 but must not duplicate it. Include the core CLI/action contracts, public compatibility surfaces,
 testing expectations, untrusted-input rules, and least-privilege requirements.
 
-Add `CLAUDE.md`, `GEMINI.md`, and `.github/copilot-instructions.md` as short pointers to the
-canonical root instructions so different coding agents receive the same contract.
+Add short pointers to the canonical root instructions so every tier-one coding agent receives the
+same contract: `CLAUDE.md`, `GEMINI.md`, `.github/copilot-instructions.md`,
+`.cursor/rules/agent-instructions.mdc` (with `alwaysApply: true` front matter),
+`.windsurf/rules/agent-instructions.md` (with `trigger: always_on` front matter), and
+`.clinerules/agent-instructions.md`.
+
+An agent whose tool has no pointer file sees no project instructions at all, so a missing pointer is
+not a cosmetic omission. Each pointer names the canonical file, states that its rules are binding
+regardless of tool, and says that instruction changes belong in the canonical file rather than the
+pointer. Do not list a pointer location the repository does not actually contain: a pointer to an
+absent directory teaches a future reader that the set is maintained when it is not.
+
+Each pointer must also surface the label-and-body-sections rule, because that is the rule an agent
+most often needs before it can open a correct pull request. Keep `## Narrative Context`,
+`## Narrative Decision` and `## Narrative Consequences` each on a single line — reflowing prose can
+split a heading name across a line break, which still renders but defeats an agent grepping for the
+exact heading it has to emit.
 
 Do not add this repository's own `.project-narrative.json`, `narrative/` fragments,
 `Narrative.md`, Narrative pull-request template, or self-hosting workflows in this stage. Examples
@@ -55,7 +70,9 @@ for consumers belong under `examples/` or fenced README snippets.
 - `npm pack --dry-run` includes the CLI, action runtime, metadata, licence, and documentation.
 - Every documented command and action input matches executable behavior.
 - The exact command behind `action.yml` check mode succeeds against a temporary consumer fixture.
-- Agent-specific instruction files contain pointers, not divergent copies of the rules.
+- Agent-specific instruction files contain pointers, not divergent copies of the rules, and one
+  exists for each of Claude, Gemini, Copilot, Cursor, Windsurf, and Cline.
+- No pointer cites an instruction-file location the repository does not contain.
 - The dependency list remains empty.
 - `git diff --check` succeeds.
 
