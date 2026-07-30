@@ -53,7 +53,13 @@ because the workflow cannot capture the pull request that first creates it.
 These are properties of the processor this sequence builds. A prompt that contradicts one of them is
 wrong, and so is a prompt that leaves an agent able to satisfy it by accident:
 
-- `Narrative.md` is **generated**. It is never hand-edited, and neither is its index.
+- `Narrative.md` is **generated output**, and so is its index. It is never authored, hand-edited, or
+  hand-merged. The only narrative file anyone writes by hand is a fragment under
+  `narrative/entries/`. This holds for a merge conflict too: the correct resolution is to discard
+  both sides and recompile, never to reconcile the markers, because fragments are the source of
+  truth and merge cleanly while only the projection collides. Running the compiler is not authoring
+  the file — compilation is deterministic and model-free, so the output is a function of the
+  fragments and nothing else.
 - A fragment is front matter plus non-empty `## Context`, `## Decision`, `## Consequences` sections,
   in that exact order. The plural on the last one matters; the validator rejects `## Consequence`.
 - A decision-bearing pull request needs **two** things: the `narrative-required` label, and the
