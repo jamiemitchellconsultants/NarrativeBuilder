@@ -12,7 +12,7 @@ this file.
 
 Note in particular that this repository teaches Project Narrative but does not yet run it on itself,
 and that in a consumer repository an entry is lost unless a pull request carries both the
-`narrative-required` label and the three `## Narrative …` sections in its body. `CLAUDE.md` §2 has
+`narrative-required` label and the four `## Narrative …` sections in its body. `CLAUDE.md` §2 has
 the detail.
 
 See also [`README.md`](README.md) and [`START-HERE.md`](START-HERE.md) for what this sequence builds

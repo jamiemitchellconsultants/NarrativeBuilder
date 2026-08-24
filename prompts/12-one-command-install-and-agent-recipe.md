@@ -42,8 +42,9 @@ scaffolded workflows and template, so repointing to a reviewed tag or SHA later 
 The maintenance workflow must run on pull-request close, proceed only when merged, check out full
 history, grant only `contents: write` and `pull-requests: write`, invoke the action, pass
 `GITHUB_TOKEN`, and pass the required label. The validation workflow must run the action in `check`
-mode with only `contents: read`. The pull-request template must carry the three exact
-`## Narrative Context`, `## Narrative Decision`, `## Narrative Consequences` headings.
+mode with only `contents: read`. The pull-request template must carry the four exact
+`## Narrative Kind`, `## Narrative Context`, `## Narrative Decision`, `## Narrative Consequences`
+headings.
 
 The command must print each scaffolded path as created or kept, then print the manual follow-ups it
 cannot perform:
@@ -64,7 +65,7 @@ Add `INSTALL.md` written **to the installing coding agent**, distinct from `AGEN
 
 - state the single `install` invocation (local and npx-style);
 - describe the non-destructive scaffold set and the existing-template caveat (an existing template
-  must gain the three exact headings or labelled pull requests fail visibly; do not silently
+  must gain the four exact headings or labelled pull requests fail visibly; do not silently
   overwrite it);
 - list the manual follow-ups the CLI cannot perform;
 - give the deterministic verification step (`narrative check`);
@@ -82,8 +83,9 @@ the workflows and the template makes the mechanism *available*; nothing in it ma
 in that repository months later aware of it. The section must state at minimum:
 
 - `Narrative.md` is generated and is never hand-edited;
-- a decision-bearing pull request needs **both** the `narrative-required` label **and** the three
-  `## Narrative …` body headings, spelled exactly as the template spells them;
+- a decision-bearing pull request needs **both** the `narrative-required` label **and** the four
+  `## Narrative …` body headings, spelled exactly as the template spells them; Narrative Kind is
+  exactly one canonical kind and is never inferred or defaulted;
 - the maintenance workflow fires on the **merge event only**, so neither omission can be repaired
   afterwards by labelling — a missed entry has to be written by hand as a fragment;
 - supplying a pull-request body replaces the repository template wholesale, which is the most common

@@ -94,8 +94,8 @@ Install the consumer files:
 - .github/workflows/validate-narrative.yml that runs on pull requests touching
   .project-narrative.json, narrative/**, or Narrative.md, grants only contents: read, and invokes
   the same reviewed action SHA in check mode;
-- the exact required headings (## Narrative Context, ## Narrative Decision, ## Narrative
-  Consequences) plus classification guidance in the pull-request template.
+- the exact required headings (## Narrative Kind, ## Narrative Context, ## Narrative Decision, ##
+  Narrative Consequences) plus classification guidance in the pull-request template.
 
 Commit the bootstrap fragment and generated Narrative.md together. Report the files changed, the
 pinned SHA, and any repository settings I still need to confirm by hand.
@@ -126,9 +126,9 @@ narrate. Give your agent this prompt:
 ```text
 Update README.md to say that this repo uses MyNarrative. Add a short section explaining that decision
 history for this repository is maintained by MyNarrative (Project Narrative), that meaningful
-decisions opt in with the narrative-required label and supply Narrative Context, Decision, and
-Consequences, and that a generated Narrative.md is the compiled record. Make the change on a new
-branch. Do not open the pull request yet.
+decisions opt in with the narrative-required label and supply a canonical Narrative Kind plus
+Narrative Context, Decision, and Consequences, and that a generated Narrative.md is the compiled
+record. Make the change on a new branch. Do not open the pull request yet.
 ```
 
 This is the kind of decision-bearing change the processor is meant to capture: it records a real
@@ -136,13 +136,16 @@ choice about how the repository is maintained.
 
 ## 5. Create the pull request
 
-Open the project pull request with all three narrative sections filled in. Give your agent this
+Open the project pull request with all four narrative sections filled in. Give your agent this
 prompt:
 
 ```text
 Create the PR for the README change on this branch.
 
-Fill in all three required sections in the pull-request body with substantive content:
+Fill in all four required sections in the pull-request body with substantive content:
+
+## Narrative Kind
+governance
 
 ## Narrative Context
 Explain why we are recording that this repository uses MyNarrative.
@@ -157,8 +160,8 @@ Apply the exact narrative-required label to this PR. Ensure any normal checks pa
 number and the label you applied. Do not merge it yet — I will review and merge it myself.
 ```
 
-Review the pull request, confirm the `narrative-required` label is present and the three sections are
-substantive, then merge it yourself.
+Review the pull request, confirm the `narrative-required` label is present, Narrative Kind is one
+canonical value, and the other three sections are substantive, then merge it yourself.
 
 ## 6. Watch the follow-up narrative pull request appear
 
@@ -170,8 +173,9 @@ containing the proposed narrative fragment and the regenerated `Narrative.md`.**
 
 The lifecycle is deliberately two steps:
 
-1. Your **project pull request** (the README change) carried `narrative-required` and supplied
-   explicit Context, Decision, and Consequences. Merging it accepted the *project* decision.
+1. Your **project pull request** (the README change) carried `narrative-required` and supplied an
+   explicit canonical Narrative Kind plus Context, Decision, and Consequences. Merging it accepted
+   the *project* decision.
 2. That merge started the maintenance workflow, which created a narrative fragment and regenerated
    `Narrative.md`, then opened a separate **follow-up draft pull request**.
 3. A human reviews that follow-up pull request and merges it to accept the *wording* of the narrative

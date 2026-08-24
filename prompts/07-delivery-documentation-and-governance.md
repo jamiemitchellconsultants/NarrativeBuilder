@@ -55,10 +55,12 @@ pointer. Do not list a pointer location the repository does not actually contain
 absent directory teaches a future reader that the set is maintained when it is not.
 
 Each pointer must also surface the label-and-body-sections rule, because that is the rule an agent
-most often needs before it can open a correct pull request. Keep `## Narrative Context`,
-`## Narrative Decision` and `## Narrative Consequences` each on a single line — reflowing prose can
-split a heading name across a line break, which still renders but defeats an agent grepping for the
-exact heading it has to emit.
+most often needs before it can open a correct pull request. Keep `## Narrative Kind`,
+`## Narrative Context`, `## Narrative Decision` and `## Narrative Consequences` each on a single
+line — reflowing prose can split a heading name across a line break, which still renders but defeats
+an agent grepping for the exact heading it has to emit. State that a qualifying pull request
+supplies exactly one non-empty canonical kind under Narrative Kind and that kind is never inferred
+or defaulted.
 
 Do not add this repository's own `.project-narrative.json`, `narrative/` fragments,
 `Narrative.md`, Narrative pull-request template, or self-hosting workflows in this stage. Examples
