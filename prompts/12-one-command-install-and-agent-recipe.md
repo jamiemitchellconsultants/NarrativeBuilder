@@ -86,6 +86,15 @@ in that repository months later aware of it. The section must state at minimum:
 - a decision-bearing pull request needs **both** the `narrative-required` label **and** the four
   `## Narrative …` body headings, spelled exactly as the template spells them; Narrative Kind is
   exactly one canonical kind and is never inferred or defaulted;
+- Kind is an explicit authoring judgement that a human or coding agent may make: classify the
+  primary nature of the decision being recorded, not the artefact changed or where it is
+  implemented. Describe the six kinds in decision-oriented language: `product` (product or domain),
+  `architecture` (architecture or integration), `governance` (governance or development process),
+  `operational` (operational policy or practice), `correction` (correction to an earlier recorded
+  decision or shipped behaviour), and `experiment` (a bounded experiment worth retaining). Where
+  more than one is plausible, choose the primary nature and leave the explicit choice for human
+  review. Do not classify mechanically from titles, paths, filenames, labels, ADR metadata,
+  technology names, or repository conventions;
 - the maintenance workflow fires on the **merge event only**, so neither omission can be repaired
   afterwards by labelling — a missed entry has to be written by hand as a fragment;
 - supplying a pull-request body replaces the repository template wholesale, which is the most common
@@ -118,7 +127,9 @@ installation pull request.
 - The command reports created paths, kept paths, and the three manual follow-ups.
 - `INSTALL.md` requires the narrative contract to be recorded in the consumer's canonical agent
   instruction file, non-destructively, and names the label, the exact body headings, the
-  merge-event-only limitation, and the supplied-body caveat.
+  merge-event-only limitation, and the supplied-body caveat. It includes the six decision-oriented
+  Kind definitions, primary-nature tie-break rule, human-review boundary, and no-mechanical-
+  classification rule.
 - `install` adds no dependency and makes no network or model call.
 - Every documented command matches executable behavior.
 - `npm run check` succeeds and `git diff --check` succeeds.

@@ -15,8 +15,9 @@ Create:
   preamble, and output paths, and the standard summary limit;
 - `narrative/preamble.md`;
 - `.github/pull_request_template.md` with change guidance, direction to supply exactly one canonical
-  kind, and exact `## Narrative Kind`, `## Narrative Context`, `## Narrative Decision`, and
-  `## Narrative Consequences` headings;
+  kind, its six canonical choices, and exact `## Narrative Kind`, `## Narrative Context`,
+  `## Narrative Decision`, and `## Narrative Consequences` headings. Keep the selection rule in
+  canonical `AGENTS.md` rather than duplicating a second taxonomy in the template;
 - `.github/workflows/validate-narrative.yml`;
 - `.github/workflows/maintain-narrative.yml`;
 - the first authoritative fragment;
@@ -53,8 +54,12 @@ Extend the canonical `AGENTS.md` with the self-hosting authoring rules:
 
 - meaningful product, architecture, governance, operational, correction, or experiment pull
   requests carry `narrative-required`;
-- those PRs declare exactly one of those canonical kinds under `## Narrative Kind` and contain
-  substantive Context, Decision, and Consequences under the exact headings;
+- those PRs declare exactly one of those canonical kinds under `## Narrative Kind`; Kind is a human-
+  or agent-authored judgement: classify the primary nature of the decision being recorded, not the
+  artefact changed or where the change is implemented. Explain the six kinds in the same
+  decision-oriented terms as the processor's canonical `AGENTS.md`, and say that a plausible tie is
+  resolved by choosing the primary nature and leaving the choice for human review;
+- those PRs contain substantive Context, Decision, and Consequences under the exact headings;
 - mechanical pull requests remove the headings and omit the label;
 - fragments are authoritative and `Narrative.md` is generated;
 - narrative-only proposal or repair pull requests omit the label to avoid recursion;

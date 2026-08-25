@@ -84,7 +84,17 @@ The headings are an interface and must be exactly:
 Meaningful product, architecture, governance, operational, correction, and experimental decisions
 use the exact `narrative-required` label, exactly one non-empty canonical kind under Narrative
 Kind, and substantive content under the other three headings. The kind is author-supplied evidence,
-not inferred or defaulted. Mechanical changes omit the label and remove all four sections.
+not inferred or defaulted. Mechanical changes omit the label and remove all four sections. Record
+the full Kind-selection guidance in the consumer repository's canonical `AGENTS.md` or `CLAUDE.md`
+(whichever is authoritative): a human or coding agent classifies the primary nature of the decision,
+not the artefact changed or implementation location; `product` means product or domain,
+`architecture` architecture or integration, `governance` governance or development process,
+`operational` operational policy or practice, `correction` correction to an earlier recorded
+decision or shipped behaviour, and `experiment` a bounded experiment worth retaining in project
+memory. Where several fit, choose the primary nature and keep that explicit choice for human review.
+Do not derive Kind mechanically from titles, paths, filenames, labels, ADR metadata, technology
+names, or repository conventions. If that canonical instruction file already exists, append this
+contract without overwriting its other rules; other agent files must point to it rather than copy it.
 
 Do not hand-edit `Narrative.md`. Create the bootstrap fragment, then compile with my freshly built
 local CLI. Commit the fragment and generated document together.

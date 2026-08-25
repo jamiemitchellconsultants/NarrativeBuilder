@@ -22,7 +22,7 @@ Interpret the event as follows:
 - an empty required-label input means every merged pull request qualifies;
 - qualifying pull requests require exactly one non-empty `## Narrative Kind` section and non-empty
   `## Narrative Context`, `## Narrative Decision`, and `## Narrative Consequences` sections;
-- Narrative Kind must be exactly one supported canonical fragment kind: `architecture`, `product`,
+- Narrative Kind must be exactly one supported canonical fragment kind: `product`, `architecture`,
   `governance`, `operational`, `correction`, or `experiment`;
 - the Narrative Kind heading must be an exact level-two section; Context, Decision, and
   Consequences heading matching may be case-insensitive, and all heading matching must respect

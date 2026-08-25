@@ -31,7 +31,7 @@ Rules the gate enforces:
 
 - The sections must be `## ` headings with those exact names. Bold labels such as `**Context:**` do
   not count.
-- Narrative Kind must be exactly one of `architecture`, `product`, `governance`, `operational`,
+- Narrative Kind must be exactly one of `product`, `architecture`, `governance`, `operational`,
   `correction`, or `experiment`; it is never inferred or defaulted. Missing, empty, duplicate, or
   unsupported Narrative Kind fails visibly.
 - Context, Decision, and Consequences must each have real content beneath them; empty sections fail.
@@ -48,10 +48,13 @@ the pull request.
 
 ## Obtain Narrative Kind
 
-If Narrative Kind is missing, stop and ask the user to supply or confirm one canonical kind before
-writing it. Do not derive a kind from the diff, commits, title, paths, labels, ADR metadata, Context,
-Decision, or Consequences prose, or repository conventions. The same rule applies if an existing
-kind is empty, duplicate, or unsupported: obtain human confirmation rather than choosing a value.
+If Narrative Kind is missing, make the bounded authoring judgement that the consumer's canonical
+agent instructions require: classify the primary nature of the decision being recorded, not the
+artefact changed or where the change is implemented. Choose exactly one canonical kind and leave it
+explicitly in the PR body for human review. Do not derive Kind mechanically from the diff, commits,
+title, paths, labels, ADR metadata, technology names, or repository conventions. If an existing Kind
+is empty, duplicate, or unsupported, replace it only after making the same bounded judgement; ask the
+user if the decision itself is not clear enough to make a responsible choice.
 
 ## Draft the sections from evidence
 

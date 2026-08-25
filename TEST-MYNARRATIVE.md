@@ -95,7 +95,8 @@ Install the consumer files:
   .project-narrative.json, narrative/**, or Narrative.md, grants only contents: read, and invokes
   the same reviewed action SHA in check mode;
 - the exact required headings (## Narrative Kind, ## Narrative Context, ## Narrative Decision, ##
-  Narrative Consequences) plus classification guidance in the pull-request template.
+  Narrative Consequences) plus the canonical choices and a reference to the Kind-selection guidance
+  in the consumer repository's canonical agent instructions.
 
 Commit the bootstrap fragment and generated Narrative.md together. Report the files changed, the
 pinned SHA, and any repository settings I still need to confirm by hand.
@@ -160,8 +161,11 @@ Apply the exact narrative-required label to this PR. Ensure any normal checks pa
 number and the label you applied. Do not merge it yet — I will review and merge it myself.
 ```
 
-Review the pull request, confirm the `narrative-required` label is present, Narrative Kind is one
-canonical value, and the other three sections are substantive, then merge it yourself.
+`governance` is appropriate here because the durable decision is about repository maintenance
+practice, not because of the README artefact. Review the pull request, confirm the
+`narrative-required` label is present, Narrative Kind is one canonical value selected for the
+primary nature of that decision, and the other three sections are substantive, then merge it
+yourself.
 
 ## 6. Watch the follow-up narrative pull request appear
 

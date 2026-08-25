@@ -14,7 +14,9 @@ into proposed Markdown fragments and compiles reviewed fragments into `Narrative
 
 It is not a changelog generator. It must never infer or invent rationale or classification. A
 qualifying pull request opts in through a configured label and explicitly supplies exactly one
-supported Narrative Kind plus Context, Decision, and Consequences. Generated wording is proposed
+supported Narrative Kind plus Context, Decision, and Consequences. Kind is bounded authoring
+judgement, made by a human or coding agent and then left explicit for human review; deterministic
+processing begins when it validates and preserves that supplied value. Generated wording is proposed
 separately for human review.
 
 ## Non-negotiable architecture
