@@ -29,6 +29,9 @@ submit each implementation stage only after the previous stage has passed its ac
 9. [Independent reconstruction audit](prompts/08-independent-reconstruction-audit.md)
 10. [Make the completed processor self-hosting](prompts/09-self-host-the-completed-project.md)
 
+After completing the processor, use [Prompt 13](prompts/13-require-explicit-narrative-kind.md) to
+apply the later, reviewed explicit-Narrative-Kind change to that existing implementation.
+
 The sequence deliberately builds from local, deterministic behavior toward GitHub automation. Each
 stage asks for executable evidence before the next begins. Do not paste every implementation prompt
 into one message: the pauses are there so the learner can inspect the diff, run the commands, and
