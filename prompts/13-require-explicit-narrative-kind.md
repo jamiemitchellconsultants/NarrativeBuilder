@@ -21,9 +21,9 @@ a semantic fallback. The processor validates and preserves the supplied canonica
 ## Inspect before editing
 
 Read the implementation's existing parser, action runtime, proposal flow, tests, documentation,
-canonical agent instructions, pull-request template, self-hosting configuration, and install
-scaffolding. State the files that implement each surface below and identify any existing consumer
-documentation that needs a deliberate migration note.
+canonical agent instructions, pull-request template, self-hosting configuration, and any existing
+install command or fresh-install scaffolding. State the files that implement each surface below and
+identify any existing consumer documentation that needs a deliberate migration note.
 
 Do not rewrite accepted Narrative fragments, generated history to disguise prior behaviour, or
 unrelated product contracts.
@@ -110,11 +110,15 @@ Update the product README, action and CLI documentation, and self-hosting config
 contract. Treat the already self-hosted Narrative repository as an existing consumer: deliberately
 migrate its template and canonical instructions, but preserve its reviewed historical fragments.
 
-Update fresh-install scaffolding so new consumers receive the four-heading template and canonical
-Kind guidance. Keep installation non-destructive. Do not invent an automatic upgrade command or a
-migration framework. Instead, document a manual migration path for existing consumers: deliberately
-update their pinned Narrative implementation, pull-request template, and canonical instructions
-together before relying on the new behaviour.
+If the implementation already provides a fresh-install command or scaffolding, update that existing
+capability so new consumers receive the four-heading template and canonical Kind guidance. Keep that
+installation behaviour non-destructive. If it has no fresh-install capability, do not introduce one
+as part of this prompt.
+
+Do not invent an automatic upgrade command or a migration framework. Document a manual migration path
+for existing consumers that is appropriate to the capabilities present: deliberately update their
+pinned Narrative implementation, pull-request template, and canonical instructions together before
+relying on the new behaviour.
 
 ## Acceptance criteria
 
@@ -123,8 +127,9 @@ together before relying on the new behaviour.
 - The processor validates and preserves Kind without inferring or defaulting it.
 - Invalid Kind evidence fails visibly before fragment or proposal side effects.
 - Tests cover the supported values, invalid evidence, skips, and no-side-effect failures.
-- Templates, canonical guidance, self-hosting, fresh installation, and documented consumer migration
-  all describe the same contract.
+- Templates, canonical guidance, self-hosting, and documented consumer migration all describe the
+  same contract.
+- If fresh-install capability already exists, its command or scaffolding produces the same contract.
 - Existing accepted fragments remain unchanged.
 - `npm run check` and `git diff --check` succeed.
 
