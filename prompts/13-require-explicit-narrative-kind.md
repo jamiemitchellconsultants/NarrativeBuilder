@@ -1,7 +1,7 @@
 # Prompt 13 — Require explicit Narrative Kind in an existing processor
 
-Use this prompt in a coding-agent task connected to an already-built Project Narrative implementation
-repository. Do not run it in NarrativeBuilder or a consumer repository.
+Use this prompt in a coding-agent task connected to an already-built Project Narrative
+implementation repository. Do not run it in NarrativeBuilder or a consumer repository.
 
 ## Scope and precedence
 
