@@ -15,9 +15,11 @@ Create:
   preamble, and output paths, and the standard summary limit;
 - `narrative/preamble.md`;
 - `.github/pull_request_template.md` with change guidance, direction to supply exactly one canonical
-  kind, its six canonical choices, and exact `## Narrative Kind`, `## Narrative Context`,
-  `## Narrative Decision`, and `## Narrative Consequences` headings. Keep the selection rule in
-  canonical `AGENTS.md` rather than duplicating a second taxonomy in the template;
+  kind, and exact `## Narrative Kind`, `## Narrative Context`, `## Narrative Decision`, and
+  `## Narrative Consequences` headings. Under Narrative Kind, list only the six allowed canonical
+  names: `product`, `architecture`, `governance`, `operational`, `correction`, and `experiment`.
+  Do not duplicate their semantic definitions, the primary-nature tie-break, or other selection
+  guidance in the template; canonical `AGENTS.md` remains authoritative for that guidance;
 - `.github/workflows/validate-narrative.yml`;
 - `.github/workflows/maintain-narrative.yml`;
 - the first authoritative fragment;
@@ -54,11 +56,9 @@ Extend the canonical `AGENTS.md` with the self-hosting authoring rules:
 
 - meaningful product, architecture, governance, operational, correction, or experiment pull
   requests carry `narrative-required`;
-- those PRs declare exactly one of those canonical kinds under `## Narrative Kind`; Kind is a human-
-  or agent-authored judgement: classify the primary nature of the decision being recorded, not the
-  artefact changed or where the change is implemented. Explain the six kinds in the same
-  decision-oriented terms as the processor's canonical `AGENTS.md`, and say that a plausible tie is
-  resolved by choosing the primary nature and leaving the choice for human review;
+- those PRs declare exactly one of those canonical kinds under `## Narrative Kind` and preserve the
+  canonical Kind-selection guidance already established in this repository's `AGENTS.md` by the
+  earlier sequential delivery stage, rather than adding a duplicate taxonomy here;
 - those PRs contain substantive Context, Decision, and Consequences under the exact headings;
 - mechanical pull requests remove the headings and omit the label;
 - fragments are authoritative and `Narrative.md` is generated;

@@ -89,11 +89,9 @@ description back into shape when it does not yet carry the required sections.
 Kind selection is a bounded authoring judgement that a human or coding agent may make. Choose one
 of `product`, `architecture`, `governance`, `operational`, `correction`, or `experiment` by
 classifying the primary nature of the decision being recorded, not the artefact changed or where the
-change is implemented. They respectively record product or domain, architecture or integration,
-governance or development-process, operational policy or practice, correction to an earlier recorded
-decision or shipped behaviour, and a bounded experiment whose outcome belongs in project memory.
-When more than one seems plausible, choose the primary nature and leave the explicit choice for
-human review. Deterministic validation starts only once the PR supplies that choice.
+change is implemented. When more than one seems plausible, choose the primary nature and leave the
+explicit choice for human review. Deterministic validation starts only once the PR supplies that
+choice and preserves it unchanged.
 
 The [fix a narrative-required pull request](prompts/11-fix-narrative-required-pull-request.md)
 prompt is a coding-agent task for exactly that situation. Like the adoption prompt, it is an
