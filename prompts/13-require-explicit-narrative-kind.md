@@ -5,9 +5,9 @@ implementation repository. Do not run it in NarrativeBuilder or a consumer repos
 
 ## Scope and precedence
 
-Prompts 00–12 are historical build instructions and must not be edited. The implementation they
-produced may therefore still contain the earlier Prompt 5 behaviour that writes `kind: product` for
-every generated fragment.
+Prompts 00–12 are published historical instructions and must not be edited. An implementation built
+through the original staged sequence, Prompts 00–09, may therefore still contain the earlier Prompt
+5 behaviour that writes `kind: product` for every generated fragment.
 
 This prompt intentionally supersedes that hard-coded behaviour in the already-built implementation.
 Any apparent conflict with the earlier instruction is deliberate. This prompt takes precedence only
