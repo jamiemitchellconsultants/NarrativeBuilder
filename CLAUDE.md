@@ -63,24 +63,13 @@ wrong, and so is a prompt that leaves an agent able to satisfy it by accident:
 - A fragment is front matter plus non-empty `## Context`, `## Decision`, `## Consequences` sections,
   in that exact order. The plural on the last one matters; the validator rejects `## Consequence`.
 - A decision-bearing pull request needs **two** things: the `narrative-required` label, and the
-  headings `## Narrative Kind`, `## Narrative Context`, `## Narrative Decision` and
-  `## Narrative Consequences` in the pull-request **body**. Narrative Kind is exactly one
-  non-empty canonical fragment kind: `product`, `architecture`, `governance`, `operational`,
-  `correction`, or `experiment`. Selecting it is bounded authoring judgement, by a human or coding
-  agent: classify the primary nature of the decision being recorded, not the artefact changed or
-  where the change is implemented. `product` records a product or domain decision; `architecture`,
-  an architecture or integration decision; `governance`, a governance or development-process
-  decision; `operational`, an operational policy or practice; `correction`, a correction to an
-  earlier recorded decision or shipped behaviour; and `experiment`, a bounded experiment whose
-  outcome should remain part of project memory. Where more than one fits, choose the primary nature
-  and leave that explicit choice for human review. The processor begins deterministic work only
-  after that choice is supplied: it validates exactly one supported value and preserves it unchanged;
-  it never infers or defaults Kind. A missing label makes the maintenance action exit silently;
-  missing, empty, duplicate, or unsupported evidence with the label present makes it fail visibly.
+  headings `## Narrative Context`, `## Narrative Decision` and `## Narrative Consequences` in the
+  pull-request **body**. A missing label makes the maintenance action exit silently; missing
+  sections with the label present make it fail visibly.
 - The maintenance action fires on the **merge event only**. Neither omission can be repaired by
   labelling afterwards — a missed entry has to be written by hand as a fragment.
 - Supplying a pull-request body replaces the repository template wholesale. Doing that without
-  carrying the four sections forward is the most common way an entry is silently lost.
+  carrying the three sections forward is the most common way an entry is silently lost.
 - A narrative-only pull request carries no label, or it would recursively generate an entry about
   maintaining the narrative.
 - Rationale is never invented from code or diffs. The processor proposes wording from evidence the

@@ -14,12 +14,8 @@ Create:
 - `.project-narrative.json` with schema version 1, a Narrative-specific title, standard fragment,
   preamble, and output paths, and the standard summary limit;
 - `narrative/preamble.md`;
-- `.github/pull_request_template.md` with change guidance, direction to supply exactly one canonical
-  kind, and exact `## Narrative Kind`, `## Narrative Context`, `## Narrative Decision`, and
-  `## Narrative Consequences` headings. Under Narrative Kind, list only the six allowed canonical
-  names: `product`, `architecture`, `governance`, `operational`, `correction`, and `experiment`.
-  Do not duplicate their semantic definitions, the primary-nature tie-break, or other selection
-  guidance in the template; canonical `AGENTS.md` remains authoritative for that guidance;
+- `.github/pull_request_template.md` with change and classification guidance plus exact
+  `## Narrative Context`, `## Narrative Decision`, and `## Narrative Consequences` headings;
 - `.github/workflows/validate-narrative.yml`;
 - `.github/workflows/maintain-narrative.yml`;
 - the first authoritative fragment;
@@ -56,9 +52,6 @@ Extend the canonical `AGENTS.md` with the self-hosting authoring rules:
 
 - meaningful product, architecture, governance, operational, correction, or experiment pull
   requests carry `narrative-required`;
-- those PRs declare exactly one of those canonical kinds under `## Narrative Kind` and preserve the
-  canonical Kind-selection guidance already established in this repository's `AGENTS.md` by the
-  earlier sequential delivery stage, rather than adding a duplicate taxonomy here;
 - those PRs contain substantive Context, Decision, and Consequences under the exact headings;
 - mechanical pull requests remove the headings and omit the label;
 - fragments are authoritative and `Narrative.md` is generated;

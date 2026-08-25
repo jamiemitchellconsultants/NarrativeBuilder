@@ -12,12 +12,9 @@ Build Project Narrative: a deterministic, review-first processor that maintains 
 history of a GitHub repository. It converts explicit evidence from qualifying merged pull requests
 into proposed Markdown fragments and compiles reviewed fragments into `Narrative.md`.
 
-It is not a changelog generator. It must never infer or invent rationale or classification. A
-qualifying pull request opts in through a configured label and explicitly supplies exactly one
-supported Narrative Kind plus Context, Decision, and Consequences. Kind is bounded authoring
-judgement, made by a human or coding agent and then left explicit for human review; deterministic
-processing begins when it validates and preserves that supplied value. Generated wording is proposed
-separately for human review.
+It is not a changelog generator. It must never infer or invent rationale from a diff. A pull request
+opts in through a configured label and supplies Context, Decision, and Consequences explicitly.
+Generated wording is proposed separately for human review.
 
 ## Non-negotiable architecture
 

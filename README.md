@@ -29,6 +29,9 @@ submit each implementation stage only after the previous stage has passed its ac
 9. [Independent reconstruction audit](prompts/08-independent-reconstruction-audit.md)
 10. [Make the completed processor self-hosting](prompts/09-self-host-the-completed-project.md)
 
+After completing the processor, use [Prompt 13](prompts/13-require-explicit-narrative-kind.md) to
+apply the later, reviewed explicit-Narrative-Kind change to that existing implementation.
+
 The sequence deliberately builds from local, deterministic behavior toward GitHub automation. Each
 stage asks for executable evidence before the next begins. Do not paste every implementation prompt
 into one message: the pauses are there so the learner can inspect the diff, run the commands, and
@@ -76,22 +79,15 @@ maintenance workflow open the separate follow-up PR that carries the proposed na
 
 ## When a labelled pull request has no narrative
 
-A pull request that carries `narrative-required` has opted in to supplying exactly one canonical
-Narrative Kind plus Context, Decision, and Consequences. The maintenance workflow reads those four
-sections from the merged pull request's description; if they are missing, invalid, or written as
-ordinary prose instead of the exact `## Narrative Kind`, `## Narrative Context`, `## Narrative
-Decision`, and `## Narrative Consequences` headings, the workflow fails visibly and produces no
-narrative proposal. Narrative Kind is author-supplied classification evidence, not something the
-processor infers or defaults. A repository can additionally add a pre-merge gate that rejects the
-same omission earlier, but a contributor still needs a way to bring a labelled pull request's
-description back into shape when it does not yet carry the required sections.
-
-Kind selection is a bounded authoring judgement that a human or coding agent may make. Choose one
-of `product`, `architecture`, `governance`, `operational`, `correction`, or `experiment` by
-classifying the primary nature of the decision being recorded, not the artefact changed or where the
-change is implemented. When more than one seems plausible, choose the primary nature and leave the
-explicit choice for human review. Deterministic validation starts only once the PR supplies that
-choice and preserves it unchanged.
+A pull request that carries `narrative-required` has opted in to supplying Context, Decision, and
+Consequences. The maintenance workflow reads those three sections from the merged pull request's
+description; if they are missing, or written as ordinary prose instead of the exact `## Narrative
+Context`, `## Narrative Decision`, and `## Narrative Consequences` headings, the workflow has no
+explicit decision to interpret. Because that requirement is checked as the pull request merges, the
+omission surfaces as a failed maintenance run on a pull request that is already merged, and no
+narrative proposal is produced for the decision. A repository can additionally add a pre-merge gate
+that rejects the same omission earlier, but a contributor still needs a way to bring a labelled pull
+request's description back into shape when it does not yet carry the required sections.
 
 The [fix a narrative-required pull request](prompts/11-fix-narrative-required-pull-request.md)
 prompt is a coding-agent task for exactly that situation. Like the adoption prompt, it is an

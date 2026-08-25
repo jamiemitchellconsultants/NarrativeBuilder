@@ -17,8 +17,7 @@ Verify independently:
 8. Fragment collisions remain unique without corrupting metadata.
 9. Summaries stay within bounds without careless sentence or word cuts.
 10. Unmerged and unlabelled events have no side effects.
-11. Qualifying events cannot proceed without exactly one supported explicit Narrative Kind and
-    explicit Context, Decision, and Consequences; a classification failure has no side effects.
+11. Qualifying events cannot proceed without explicit Context, Decision, and Consequences.
 12. Pull-request prose is never executed or placed into Git command arguments.
 13. Reruns update one predictable branch and do not create duplicate draft pull requests.
 14. Tokens are neither logged nor written to fragments, commits, examples, or errors.
