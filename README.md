@@ -32,6 +32,11 @@ submit each implementation stage only after the previous stage has passed its ac
 After completing the processor, use [Prompt 13](prompts/13-require-explicit-narrative-kind.md) to
 apply the later, reviewed explicit-Narrative-Kind change to that existing implementation.
 
+After applying Prompt 13, use
+[Prompt 14](prompts/14-correct-narrative-kind-authorship-guidance.md) to correct existing guidance
+that wrongly requires Narrative Kind to be selected only by a human. It preserves Kind as explicit
+bounded authoring judgement by a human or coding agent, with human review as the adoption authority.
+
 The sequence deliberately builds from local, deterministic behavior toward GitHub automation. Each
 stage asks for executable evidence before the next begins. Do not paste every implementation prompt
 into one message: the pauses are there so the learner can inspect the diff, run the commands, and
